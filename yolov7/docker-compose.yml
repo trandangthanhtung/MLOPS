@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  yolov7:
+    build:
+      context: .  
+      dockerfile: Dockerfile
+    volumes:
+      - ./images:/yolov7/images
+      - ./output:/yolov7/output
