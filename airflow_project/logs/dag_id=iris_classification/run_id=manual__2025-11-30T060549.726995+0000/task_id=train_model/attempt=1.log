@@ -1,0 +1,20 @@
+[2025-11-30T06:05:55.472+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-11-30T06:05:55.494+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: iris_classification.train_model manual__2025-11-30T06:05:49.726995+00:00 [queued]>
+[2025-11-30T06:05:55.501+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: iris_classification.train_model manual__2025-11-30T06:05:49.726995+00:00 [queued]>
+[2025-11-30T06:05:55.502+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-11-30T06:05:55.510+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): train_model> on 2025-11-30 06:05:49.726995+00:00
+[2025-11-30T06:05:55.520+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'iris_classification', 'train_model', 'manual__2025-11-30T06:05:49.726995+00:00', '--job-id', '13', '--raw', '--subdir', 'DAGS_FOLDER/iris_classification_dag.py', '--cfg-path', '/tmp/tmpl3qavhrq']
+[2025-11-30T06:05:55.520+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=1746) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-11-30T06:05:55.522+0000] {standard_task_runner.py:91} INFO - Job 13: Subtask train_model
+[2025-11-30T06:05:55.523+0000] {standard_task_runner.py:64} INFO - Started process 1767 to run task
+[2025-11-30T06:05:55.535+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-11-30T06:05:55.586+0000] {task_command.py:426} INFO - Running <TaskInstance: iris_classification.train_model manual__2025-11-30T06:05:49.726995+00:00 [running]> on host b0ec58fbce72
+[2025-11-30T06:05:55.647+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='iris_classification' AIRFLOW_CTX_TASK_ID='train_model' AIRFLOW_CTX_EXECUTION_DATE='2025-11-30T06:05:49.726995+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-30T06:05:49.726995+00:00'
+[2025-11-30T06:05:55.649+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-11-30T06:05:55.732+0000] {logging_mixin.py:188} INFO - Model trained and saved.
+[2025-11-30T06:05:55.733+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-11-30T06:05:55.734+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-11-30T06:05:55.742+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=iris_classification, task_id=train_model, run_id=manual__2025-11-30T06:05:49.726995+00:00, execution_date=20251130T060549, start_date=20251130T060555, end_date=20251130T060555
+[2025-11-30T06:05:55.781+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2025-11-30T06:05:55.797+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-30T06:05:55.799+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

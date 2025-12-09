@@ -1,0 +1,20 @@
+[2025-11-30T16:56:13.541+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-11-30T16:56:13.583+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: inflation_forecast_dag.train_inflation_model manual__2025-11-30T16:56:07.682807+00:00 [queued]>
+[2025-11-30T16:56:13.592+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: inflation_forecast_dag.train_inflation_model manual__2025-11-30T16:56:07.682807+00:00 [queued]>
+[2025-11-30T16:56:13.593+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-11-30T16:56:13.605+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): train_inflation_model> on 2025-11-30 16:56:07.682807+00:00
+[2025-11-30T16:56:13.612+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=991) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-11-30T16:56:13.614+0000] {standard_task_runner.py:64} INFO - Started process 992 to run task
+[2025-11-30T16:56:13.613+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'inflation_forecast_dag', 'train_inflation_model', 'manual__2025-11-30T16:56:07.682807+00:00', '--job-id', '47', '--raw', '--subdir', 'DAGS_FOLDER/inflation_forecast_dag.py', '--cfg-path', '/tmp/tmp1pmxr0h8']
+[2025-11-30T16:56:13.615+0000] {standard_task_runner.py:91} INFO - Job 47: Subtask train_inflation_model
+[2025-11-30T16:56:13.638+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-11-30T16:56:13.695+0000] {task_command.py:426} INFO - Running <TaskInstance: inflation_forecast_dag.train_inflation_model manual__2025-11-30T16:56:07.682807+00:00 [running]> on host 251ca1b54482
+[2025-11-30T16:56:13.767+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='inflation_forecast_dag' AIRFLOW_CTX_TASK_ID='train_inflation_model' AIRFLOW_CTX_EXECUTION_DATE='2025-11-30T16:56:07.682807+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-30T16:56:07.682807+00:00'
+[2025-11-30T16:56:13.769+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-11-30T16:56:14.906+0000] {logging_mixin.py:188} INFO - Trained model saved: /opt/***/models/inflation_model.pkl MAE: 3.503786744411815
+[2025-11-30T16:56:14.913+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-11-30T16:56:14.923+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-11-30T16:56:14.968+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=inflation_forecast_dag, task_id=train_inflation_model, run_id=manual__2025-11-30T16:56:07.682807+00:00, execution_date=20251130T165607, start_date=20251130T165613, end_date=20251130T165614
+[2025-11-30T16:56:15.028+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2025-11-30T16:56:15.045+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-30T16:56:15.049+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
