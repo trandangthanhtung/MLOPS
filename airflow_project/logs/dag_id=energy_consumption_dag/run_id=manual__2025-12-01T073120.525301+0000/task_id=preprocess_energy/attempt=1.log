@@ -1,0 +1,20 @@
+[2025-12-01T07:31:21.960+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-12-01T07:31:21.984+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: energy_consumption_dag.preprocess_energy manual__2025-12-01T07:31:20.525301+00:00 [queued]>
+[2025-12-01T07:31:21.989+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: energy_consumption_dag.preprocess_energy manual__2025-12-01T07:31:20.525301+00:00 [queued]>
+[2025-12-01T07:31:21.990+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-12-01T07:31:22.000+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): preprocess_energy> on 2025-12-01 07:31:20.525301+00:00
+[2025-12-01T07:31:22.005+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=3427) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-12-01T07:31:22.006+0000] {standard_task_runner.py:64} INFO - Started process 3430 to run task
+[2025-12-01T07:31:22.005+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'energy_consumption_dag', 'preprocess_energy', 'manual__2025-12-01T07:31:20.525301+00:00', '--job-id', '101', '--raw', '--subdir', 'DAGS_FOLDER/energy_consumption_dag.py', '--cfg-path', '/tmp/tmp33xrzlf9']
+[2025-12-01T07:31:22.006+0000] {standard_task_runner.py:91} INFO - Job 101: Subtask preprocess_energy
+[2025-12-01T07:31:22.017+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-12-01T07:31:22.054+0000] {task_command.py:426} INFO - Running <TaskInstance: energy_consumption_dag.preprocess_energy manual__2025-12-01T07:31:20.525301+00:00 [running]> on host 251ca1b54482
+[2025-12-01T07:31:22.112+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='energy_consumption_dag' AIRFLOW_CTX_TASK_ID='preprocess_energy' AIRFLOW_CTX_EXECUTION_DATE='2025-12-01T07:31:20.525301+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-12-01T07:31:20.525301+00:00'
+[2025-12-01T07:31:22.112+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-12-01T07:31:23.076+0000] {logging_mixin.py:188} INFO - Preprocessed energy saved: /opt/***/data/energy_processed.csv
+[2025-12-01T07:31:23.077+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-12-01T07:31:23.078+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-12-01T07:31:23.085+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=energy_consumption_dag, task_id=preprocess_energy, run_id=manual__2025-12-01T07:31:20.525301+00:00, execution_date=20251201T073120, start_date=20251201T073121, end_date=20251201T073123
+[2025-12-01T07:31:23.109+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2025-12-01T07:31:23.126+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-12-01T07:31:23.127+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
