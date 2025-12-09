@@ -1,0 +1,10 @@
+cat << 'EOF' > aqi-mlops/requirements.txt
+pandas
+numpy
+scikit-learn
+fastapi
+uvicorn
+mlflow
+joblib
+matplotlib
+EOF

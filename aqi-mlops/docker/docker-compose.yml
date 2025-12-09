@@ -1,0 +1,68 @@
+version: "3.9"
+
+services:
+  aqi-api:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.api
+    container_name: aqi_api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../models:/app/models
+      - ../data/processed:/app/data
+    environment:
+      MODEL_PATH: "/app/models/best_model.pkl"
+      MLFLOW_TRACKING_URI: "http://mlflow:5000"
+    depends_on:
+      - mlflow
+    restart: always
+
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:latest
+    container_name: mlflow_server
+    ports:
+      - "5000:5000"
+    environment:
+      BACKEND_STORE_URI: postgresql://mlflow:mlflow@postgres:5432/mlflowdb
+      ARTIFACT_ROOT: s3://mlflow/
+      MLFLOW_S3_ENDPOINT_URL: http://minio:9000
+    depends_on:
+      - postgres
+      - minio
+    command: >
+      mlflow server
+      --backend-store-uri postgresql://mlflow:mlflow@postgres:5432/mlflowdb
+      --default-artifact-root s3://mlflow/
+      --host 0.0.0.0
+      --port 5000
+
+  postgres:
+    image: postgres:14
+    container_name: mlflow_postgres
+    environment:
+      POSTGRES_DB: mlflowdb
+      POSTGRES_USER: mlflow
+      POSTGRES_PASSWORD: mlflow
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: always
+
+  minio:
+    image: minio/minio
+    container_name: mlflow_minio
+    environment:
+      MINIO_ACCESS_KEY: minio
+      MINIO_SECRET_KEY: minio123
+    command: server /data
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio_data:/data
+
+volumes:
+  postgres_data:
+  minio_data:
