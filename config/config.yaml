@@ -1,0 +1,17 @@
+project:
+  name: air_quality_mlops
+
+paths:
+  raw_data: data/AirQualityUCI.csv       # dùng đường dẫn tương đối trong Docker
+  processed_data: data/processed/data.npy
+  model_ready_flag: models/MODEL_READY
+
+mlflow:
+  tracking_uri: http://mlflow:5000
+  experiment: AQI_ALL_MODELS
+  model_name: AQI_MODEL
+
+training:
+  test_size: 0.2
+  random_state: 42
+  target_column: AQI
